@@ -22,6 +22,73 @@ When this pattern applies and key constraints.
 
 Describe the solution, steps, and rationale.
 
+## System Architecture Considerations
+
+Address how this pattern fits into broader system architecture patterns:
+
+- Microservices: How does this pattern work in a containerized microservices architecture?
+- Agent-Based: Does this pattern support multi-agent orchestration or shared memory systems?
+- Event-Driven: How does this pattern handle asynchronous, event-driven processing?
+
+## ML Pipeline Architecture
+
+If applicable, describe how this pattern integrates with ML pipeline architectures:
+
+- DAGs: How does this pattern fit into Directed Acyclic Graph workflows?
+- Shared-Nothing: Does this pattern support horizontally scalable, independent processing?
+- Parameter Server/Ring-AllReduce: How does this pattern handle distributed learning scenarios?
+
+## Deployment Strategy
+
+Detail the recommended deployment approach for this pattern:
+
+- Online Serving: Is real-time inference appropriate for this pattern?
+- Batch Serving: Is batch processing more suitable?
+- Blue/Green: Would zero-downtime deployment be beneficial?
+- Canary: Would progressive rollout reduce risk?
+
+## Scalability Approach
+
+Describe how this pattern scales:
+
+- Horizontal: How does this pattern handle scaling by adding more instances?
+- Vertical: How does this pattern utilize increased resources (CPU, memory, GPU)?
+- Load Balancing: How should requests be distributed across instances?
+
+## Data Handling
+
+Address data-related aspects of this pattern:
+
+- Feature Store: How does this pattern interact with centralized feature repositories?
+- Data Versioning: How is dataset versioning handled?
+- Stream Processing: Does this pattern support real-time data ingestion?
+
+## Model Serving
+
+If applicable, detail model serving aspects:
+
+- Model Registry: How are model versions managed?
+- Multi-Model Serving: Can this pattern serve multiple models efficiently?
+- A/B Testing: How can variants be compared?
+- Shadow Mode: Can new implementations be validated risk-free?
+
+## MLOps Integration
+
+Describe how this pattern supports MLOps practices:
+
+- Continuous Training: How does this pattern handle automated retraining?
+- Model Monitoring: What metrics should be tracked in production?
+- Experiment Tracking: How are experiments recorded?
+- Model Governance: How does this pattern ensure compliance?
+
+## Infrastructure Requirements
+
+Detail infrastructure needs:
+
+- Distributed Systems: Does this pattern leverage distributed AI superfactories?
+- GPU Resources: Are specialized compute resources required?
+- Edge Deployment: Is edge deployment appropriate?
+
 ## Diagram (Mermaid)
 
 ```mermaid
@@ -87,3 +154,7 @@ A checklist of items to verify before deploying implementations of this pattern:
 - [ ] Compliance requirements satisfied
 - [ ] Rollback procedures documented
 - [ ] Disaster recovery plans updated
+- [ ] Architecture alignment verified
+- [ ] Scalability requirements addressed
+- [ ] Data handling procedures defined
+- [ ] MLOps integration confirmed

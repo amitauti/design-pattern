@@ -13,3 +13,31 @@
 - Reproducibility: The ability to recreate identical pattern implementations across different environments consistently.
 - Lifecycle: The stages a pattern implementation goes through, including creation, maintenance, evolution, and deprecation.
 - Delivery Checklist: A verification list of requirements that must be satisfied before deploying pattern implementations to production.
+- Microservices Architecture: Containerized services that operate independently with isolated components, enabling consistent deployment and independent scaling.
+- Agent-Based Architecture: An architecture where multiple AI systems coordinate and work together with shared memory and knowledge bases.
+- Event-Driven Architecture: An architecture where components respond to events, improving scalability and decoupling system components.
+- Directed Acyclic Graph (DAG): A structure used in ML workflows where nodes represent tasks and directed edges show dependencies.
+- Shared-Nothing Architecture: An architecture where each node operates independently without shared state, enabling horizontal scaling.
+- Parameter Server Architecture: A distributed learning architecture with a central server maintaining consistency in model parameters across systems.
+- Ring-AllReduce Architecture: A distributed deep learning architecture enabling efficient gradient aggregation across multiple nodes without centralized bottlenecks.
+- Online Serving: Real-time prediction serving where models are queried on-demand for instant responses.
+- Batch Serving: Predictions made in bulk at scheduled intervals for non-time-critical applications.
+- Blue/Green Deployment: A deployment strategy maintaining two identical environments to enable seamless, zero-downtime deployments with instant rollback capability.
+- Canary Deployment: A progressive delivery approach where new models are rolled out to a small subset of users before full deployment.
+- Horizontal Scaling: Adding more instances to handle increased load, enabling near-linear scalability for distributed systems.
+- Vertical Scaling: Increasing resources (CPU, memory, GPU) of single instances for computationally intensive tasks.
+- Load Balancing: Distributing requests across multiple model instances to optimize resource utilization and performance.
+- Auto-Scaling: Automatically adjusting capacity based on demand to handle varying traffic patterns.
+- Data Versioning: Tracking datasets, features, and training data versions to ensure reproducibility and enable model retraining.
+- Stream Processing: Real-time data ingestion and processing for online learning and feature computation.
+- Multi-Model Serving: Single serving infrastructure hosting multiple models for efficient resource utilization and centralized management.
+- A/B Testing: Deploying multiple model versions simultaneously to compare performance and validate improvements.
+- Shadow Mode: Deploying new models alongside production models, sending identical requests to both but only returning production results to users.
+- Continuous Training (CT): An automated pipeline that retrains models on new data at regular intervals or triggered by data drift detection.
+- Experiment Tracking: Systematic recording of experiments, hyperparameters, metrics, and artifacts to enable reproducibility and model comparison.
+- Model Governance: Policies and processes ensuring models meet regulatory, ethical, and business requirements before deployment.
+- Distributed AI Superfactories: Flexible, global AI systems linking computing resources across distributed networks for improved efficiency.
+- GPU Resource Pooling: Shared GPU infrastructure accessible by multiple workloads to maximize utilization and reduce costs.
+- Edge Deployment: Deploying models closer to data sources or end users to reduce latency and enable offline operation.
+- Multi-Agent Orchestration: Coordination between multiple AI agents with shared memory and tool execution capabilities.
+- Workflow Orchestration: Maintaining state between nodes while orchestrating complex multi-step AI workflows with conditional logic.
