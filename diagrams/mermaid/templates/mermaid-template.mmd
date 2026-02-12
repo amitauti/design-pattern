@@ -1,7 +1,82 @@
-%% Mermaid template
-graph TD
-  A[Data] --> B[Preprocess]
-  B --> C[Train]
-  C --> D[Serve]
+%% Mermaid template for AI Architecture Patterns
+%% Choose the appropriate diagram type based on your pattern category:
 
-%% Usage: copy the snippet into pattern markdown under a fenced block.
+%% For Microservices Architecture
+graph LR
+  Client --> LB[Load Balancer]
+  LB --> MS1[Model Service 1]
+  LB --> MS2[Model Service 2]
+  LB --> MS3[Model Service 3]
+  MS1 --> |Docker| K8s[Kubernetes]
+  MS2 --> |Docker| K8s
+  MS3 --> |Docker| K8s
+
+%% For Agent-Based Architecture
+graph TD
+  Agent1[Agent 1] --> KB[Knowledge Base]
+  Agent2[Agent 2] --> KB
+  Agent3[Agent 3] --> KB
+  KB --> |Shared Memory| VectorDB[(Vector DB)]
+  Agent1 --> |Coordination| Comm[Communication Layer]
+  Agent2 --> Comm
+  Agent3 --> Comm
+
+%% For Event-Driven Architecture
+graph LR
+  EventSrc[Event Source] --> Broker[Message Broker]
+  Broker --> Proc1[Processor 1]
+  Broker --> Proc2[Processor 2]
+  Broker --> Proc3[Processor 3]
+  Proc1 --> |Async| Result[Result Store]
+  Proc2 --> Result
+  Proc3 --> Result
+
+%% For DAG Workflow Architecture
+graph TD
+  A[Data Ingestion] --> B[Feature Engineering]
+  B --> C[Model Training]
+  C --> D[Validation]
+  D --> E[Model Registry]
+  E --> F[Deployment]
+  F --> G[Monitoring]
+
+%% For Feature Store Architecture
+graph LR
+  subgraph "Offline Store"
+    OFS[(Parquet/HDFS)]
+  end
+  subgraph "Online Store"
+    ONS[(Redis/Cassandra)]
+  end
+  subgraph "Feature Engineering"
+    FE[Transform & Validate]
+  end
+  RawData[(Raw Data)] --> FE
+  FE --> OFS
+  FE --> ONS
+  subgraph "Training"
+    Trainer[Model Trainer]
+  end
+  subgraph "Serving"
+    Scorer[Model Scorer]
+  end
+  OFS --> Trainer
+  ONS --> Scorer
+
+%% For Model Serving Architecture
+graph TD
+  Client --> LB[Load Balancer]
+  LB --> MS1[Model Server v1]
+  LB --> MS2[Model Server v2]
+  MS1 --> MR1[Model Registry]
+  MS2 --> MR2[Model Registry]
+  MS1 --> Mon1[Monitoring]
+  MS2 --> Mon2[Monitoring]
+  subgraph "Canary Deployment"
+    direction TB
+    MS1 --> Split[Traffic Splitter]
+    MS2 --> Split
+  end
+
+%% Usage: Copy the appropriate snippet into your pattern markdown under a fenced block.
+%% Choose the diagram type that best represents your specific pattern.

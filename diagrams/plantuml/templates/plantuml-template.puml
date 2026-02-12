@@ -1,6 +1,84 @@
-'@startuml
-actor User
-User -> Service: request
-Service -> Model: infer
-Model --> Service: result
+@startuml AI Architecture Patterns Template
+!theme plain
+
+' Choose the appropriate diagram type based on your pattern category:
+
+' For Microservices Architecture
+skinparam component {
+  BackgroundColor White
+  BorderColor Black
+}
+component "Client" as client
+component "Load Balancer" as lb
+component "Model Service 1" as ms1
+component "Model Service 2" as ms2
+component "Kubernetes Cluster" as k8s
+
+client --> lb : HTTP
+lb --> ms1 : route
+lb --> ms2 : route
+ms1 --> k8s : Docker
+ms2 --> k8s : Docker
+
+' For Agent-Based Architecture
+package "Multi-Agent System" {
+  component "Agent 1" as agent1
+  component "Agent 2" as agent2
+  component "Agent 3" as agent3
+  database "Vector DB" as vdb
+  component "Knowledge Base" as kb
+  component "Communication Layer" as comm
+  
+  agent1 --> kb : coordination
+  agent2 --> kb : coordination
+  agent3 --> kb : coordination
+  kb --> vdb : shared memory
+  agent1 --> comm : inter-agent
+  agent2 --> comm : inter-agent
+  agent3 --> comm : inter-agent
+}
+
+' For Event-Driven Architecture
+rectangle "Event Source" as es
+rectangle "Message Broker" as mb
+rectangle "Processor 1" as p1
+rectangle "Processor 2" as p2
+database "Result Store" as rs
+
+es --> mb : publish
+mb --> p1 : consume
+mb --> p2 : consume
+p1 --> rs : async result
+p2 --> rs : async result
+
+' For DAG Workflow Architecture
+rectangle "Data Ingestion" as di
+rectangle "Feature Engineering" as fe
+rectangle "Model Training" as mt
+rectangle "Validation" as val
+rectangle "Model Registry" as mr
+rectangle "Deployment" as deploy
+rectangle "Monitoring" as mon
+
+di --> fe
+fe --> mt
+mt --> val
+val --> mr
+mr --> deploy
+deploy --> mon
+
+' For Feature Store Architecture
+rectangle "Raw Data" as raw
+rectangle "Feature Engineering" as fe_proc
+database "Offline Store\n(Parquet/HDFS)" as ofs
+database "Online Store\n(Redis/Cassandra)" as ons
+rectangle "Model Trainer" as trainer
+rectangle "Model Scorer" as scorer
+
+raw --> fe_proc
+fe_proc --> ofs
+fe_proc --> ons
+ofs --> trainer
+ons --> scorer
+
 @enduml
