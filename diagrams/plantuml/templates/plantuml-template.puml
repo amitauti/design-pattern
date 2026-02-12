@@ -1,0 +1,6 @@
+'@startuml
+actor User
+User -> Service: request
+Service -> Model: infer
+Model --> Service: result
+@enduml
