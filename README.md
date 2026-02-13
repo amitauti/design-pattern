@@ -9,6 +9,7 @@ This repository collects design patterns and architecture patterns for AI/ML sys
 - `diagrams/mermaid/` — Mermaid diagrams and templates
 - `diagrams/plantuml/` — PlantUML diagrams and templates
 - `docs/` — documentation including decision frameworks and taxonomies
+- `notebooklm-media/` — media assets generated from NotebookLM, including images for decision frameworks
 - `templates/` — Markdown and diagram templates
 - `examples/` — small runnable examples and snippets
 

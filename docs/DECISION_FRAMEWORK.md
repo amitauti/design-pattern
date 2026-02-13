@@ -2,6 +2,17 @@
 
 This document provides a comprehensive decision framework to guide architects and developers in selecting the most appropriate patterns, protocols, and architectures for their AI systems. The framework consists of five interconnected decision trees that address different aspects of AI system design.
 
+## Visual Assets
+
+Visual representations of these frameworks are available as static images in the `notebooklm-media/decision framework/` directory:
+- [high-level-architecture-framework.png](../notebooklm-media/decision%20framework/high-level-architecture-framework.png)
+- [multi-agent-orchestration-framework.png](../notebooklm-media/decision%20framework/multi-agent-orchestration-framework.png)
+- [protocol-selection-framework.png](../notebooklm-media/decision%20framework/protocol-selection-framework.png)
+- [rag-complexity-framework.png](../notebooklm-media/decision%20framework/rag-complexity-framework.png)
+- [security-governance-framework.png](../notebooklm-media/decision%20framework/security-governance-framework.png)
+
+Additionally, interactive Mermaid diagrams are embedded throughout this document.
+
 ## Overview
 
 The decision framework is designed to help navigate complex architectural decisions by providing structured approaches to evaluate options based on specific requirements and constraints. Each framework addresses a different aspect of AI system design:
