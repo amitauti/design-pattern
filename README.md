@@ -8,6 +8,7 @@ This repository collects design patterns and architecture patterns for AI/ML sys
 - `patterns/low-level/` — implementation patterns (training loops, optimizers, data augmentation)
 - `diagrams/mermaid/` — Mermaid diagrams and templates
 - `diagrams/plantuml/` — PlantUML diagrams and templates
+- `docs/` — documentation including decision frameworks and taxonomies
 - `templates/` — Markdown and diagram templates
 - `examples/` — small runnable examples and snippets
 
@@ -62,6 +63,16 @@ This repository collects design patterns and architecture patterns for AI/ML sys
 - **Distributed AI Superfactories**: Global distributed computing resources
 - **GPU Resource Pooling**: Shared GPU infrastructure
 - **Edge Deployment Pattern**: Low-latency deployment closer to users
+
+## Decision Framework
+
+This repository includes a comprehensive [Decision Framework](docs/DECISION_FRAMEWORK.md) to guide architects and developers in selecting the most appropriate patterns, protocols, and architectures for their AI systems. The framework consists of five interconnected decision trees:
+
+1. **High-Level Architecture Framework**: Determines the fundamental technology stack based on primary function
+2. **Multi-Agent Orchestration Framework**: Selects the correct interaction pattern for multiple agents
+3. **Protocol Selection Framework**: Distinguishes between MCP and A2A protocols
+4. **RAG Complexity Framework**: Decides the level of sophistication needed for retrieval tasks
+5. **Security & Governance Framework**: Determines security measures based on risk assessment
 
 ## Modern AI Framework Patterns (2026)
 

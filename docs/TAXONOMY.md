@@ -50,6 +50,12 @@ Patterns are organized into the following categories:
 - GPU Resource Pooling: Shared GPU infrastructure
 - Edge Deployment Pattern: Low-latency deployment closer to users
 
+## Decision Frameworks
+
+The repository includes a comprehensive decision framework to guide pattern selection:
+
+- [Decision Framework for AI Architecture](DECISION_FRAMEWORK.md): Five interconnected decision trees covering architecture, orchestration, protocols, RAG complexity, and security considerations.
+
 ## Levels
 
 - High-level: architecture and system-level patterns (cross-service, infra, ops).

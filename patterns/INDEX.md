@@ -2,6 +2,10 @@
 
 This index lists available patterns in the repository, organized by category based on the AI Design & Architecture Patterns Reference Guide.
 
+## Decision Guidance
+
+For help selecting appropriate patterns, see [Decision Guidance for Pattern Selection](DECISION_GUIDANCE.md) which provides guidance on using the [Decision Framework](../docs/DECISION_FRAMEWORK.md).
+
 ## System Architecture Patterns
 
 - Microservices Architecture (high): `patterns/high-level/microservices-architecture.md` — containerized services with isolated components for reliable AI deployment.
