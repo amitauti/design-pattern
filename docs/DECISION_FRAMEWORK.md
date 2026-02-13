@@ -36,6 +36,26 @@ This framework determines the fundamental technology stack for your agent based 
    - **YES:** Use **A2A (Agent-to-Agent Protocol)**.
      - *Use Case:* Querying a manufacturer's database where you cannot have raw access due to privacy/security; their agent acts as an "intelligent firewall."
 
+### Visualization
+
+```mermaid
+flowchart TD
+    A[Start: Determine Tech Stack] --> B{Need to retrieve<br/>knowledge from<br/>unstructured docs?}
+    B -->|YES| C[RAG:<br/>Retrieval-Augmented<br/>Generation]
+    B -->|NO| D{Need to access<br/>internal databases<br/>or perform actions?}
+    D -->|YES| E[MCP:<br/>Model Context Protocol]
+    D -->|NO| F{Complex workflow<br/>requiring teamwork<br/>within single app?}
+    F -->|YES| G[Sub-agents:<br/>Multi-agent system<br/>with shared state]
+    F -->|NO| H{Need to communicate<br/>with agent from<br/>different org?}
+    H -->|YES| I[A2A:<br/>Agent-to-Agent Protocol]
+    H -->|NO| J[Consider other<br/>architectural patterns]
+    
+    C -.-> K[Use Case:<br/>Manual search,<br/>documentation]
+    E -.-> L[Use Case:<br/>Database queries,<br/>business logic]
+    G -.-> M[Use Case:<br/>Triage systems,<br/>multi-step workflows]
+    I -.-> N[Use Case:<br/>Cross-org queries,<br/>secure data access]
+```
+
 ### Application
 
 This framework should be applied early in the design process to establish the foundational architecture. It helps determine whether you need retrieval capabilities, external data access, multi-agent coordination, or inter-organizational communication.
@@ -63,6 +83,27 @@ Once you have decided to use multiple agents (Decision 3 above), this framework 
 - **Magentic / Router Orchestration**
   - **When to use:** Solution path is unknown or open-ended, requiring dynamic planning.
   - **Best for:** Incident response or open-ended research where a "Manager" agent builds a task ledger dynamically.
+
+### Visualization
+
+```mermaid
+graph TB
+    A[Multi-Agent System] --> B{Orchestration Pattern}
+    B --> C[Sequential/<br/>Handoff]
+    B --> D[Concurrent/<br/>Parallel]
+    B --> E[Group Chat/<br/>Roundtable]
+    B --> F[Magentic/<br/>Router]
+    
+    C --> C1[Linear workflow:<br/>Agent1 -> Agent2 -> Agent3]
+    D --> D1[Parallel tasks:<br/>Agent1, Agent2, Agent3<br/>work simultaneously]
+    E --> E1[Collaborative:<br/>Agents discuss<br/>and reach consensus]
+    F --> F1[Dynamic planning:<br/>Manager agent creates<br/>task ledger on fly]
+    
+    C1 -.-> C2[Draft -> Review -> Polish]
+    D1 -.-> D2[Research stocks &<br/>news simultaneously]
+    E1 -.-> E2[Brainstorm solutions]
+    F1 -.-> F2[Incident response]
+```
 
 ### Considerations
 
@@ -94,6 +135,28 @@ This framework specifically addresses the confusion between connecting tools ver
 - **External:** If the reasoning logic is private, proprietary, or complex and handled by the remote entity.
   - **→ Use A2A.**
 
+### Visualization
+
+```mermaid
+graph LR
+    A[Connection Type Decision] --> B{Nature of Connection}
+    B --> C[Resource:<br/>Database, API,<br/>discrete function]
+    B --> D[Peer:<br/>Autonomous system,<br/>reasons & plans]
+    
+    C --> E[MCP:<br/>Model Context Protocol<br/>- Direct access<br/>- Stateless<br/>- Tool-like]
+    D --> F[A2A:<br/>Agent-to-Agent Protocol<br/>- Negotiation<br/>- Stateful<br/>- Peer-like]
+    
+    A --> G{Intelligence Location}
+    G --> H[Internal:<br/>Your agent handles<br/>reasoning]
+    G --> I[External:<br/>Remote entity<br/>handles reasoning]
+    
+    H --> E
+    I --> F
+    
+    E -.-> J[Use Case:<br/>Database queries,<br/>tool access]
+    F -.-> K[Use Case:<br/>Cross-org<br/>collaboration]
+```
+
 ### Security Implications
 
 Consider the security implications of each protocol:
@@ -115,6 +178,23 @@ This framework decides the level of sophistication needed for retrieval tasks.
 - **Requires Reasoning:** Does the task require planning, multi-step research, or using tools to refine the search?
   - **YES:** Use **Agentic RAG**.
     - *Mechanism:* The agent plans a search, retrieves data, evaluates if it's sufficient, and potentially searches again or uses tools to process the data before answering.
+
+### Visualization
+
+```mermaid
+flowchart TD
+    A[Start: RAG Complexity] --> B{Task Type}
+    B --> C{Simple Q&A from<br/>fixed knowledge base?}
+    C -->|YES| D[Vanilla RAG:<br/>Retrieve -> Answer]
+    C -->|NO| E{Requires planning,<br/>multi-step research,<br/>or tool usage?}
+    E -->|YES| F[Agentic RAG:<br/>Plan -> Retrieve -><br/>Evaluate -> Iterate]
+    
+    D --> D1[Use Case:<br/>FAQ bot,<br/>manual lookup]
+    F --> F1[Use Case:<br/>Research tasks,<br/>complex queries,<br/>multi-step reasoning]
+    
+    D1 -.-> G[Single-step process]
+    F1 -.-> H[Iterative process<br/>with tool usage]
+```
 
 ### Complexity Indicators
 
@@ -141,6 +221,25 @@ This framework determines when to enforce MCP for security reasons rather than a
 
 #### Risk Check 3: Safe SQL Writing
 - **NO:** Use **MCP**. Expose predefined, parameterized SQL queries as tools. The agent selects the tool, but the *developer* writes the safe SQL query.
+
+### Visualization
+
+```mermaid
+graph TD
+    A[Security Assessment] --> B{Risk: Prompt<br/>Injection or<br/>Data Exfiltration?}
+    A --> C{Risk: Connection<br/>Storms from<br/>scaling agents?}
+    A --> D{Safe for LLM<br/>to write SQL?}
+    
+    B -->|YES| E[MCP Toolbox:<br/>Input validation,<br/>credential isolation]
+    C -->|YES| F[MCP Toolbox:<br/>Connection pooling,<br/>resource management]
+    D -->|NO| G[MCP with<br/>predefined queries:<br/>Developer-written SQL]
+    
+    E --> H[Secure Layer<br/>between LLM<br/>and resources]
+    F --> H
+    G --> H
+    
+    H --> I[Compliance:<br/>Audit trails,<br/>access controls,<br/>regulation adherence]
+```
 
 ### Governance Requirements
 
